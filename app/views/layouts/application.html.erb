@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <nav class="navbar navbar-expand-sm bg-light">
+    <a class="navbar-brand" href="<%= root_path %>">App</a>
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="<%= root_path %>">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= posts_path %>">List Posts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= new_post_path %>">Add Post</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container pt-5">
+    <%= yield %>
+  </div>
+  </body>
+</html>
