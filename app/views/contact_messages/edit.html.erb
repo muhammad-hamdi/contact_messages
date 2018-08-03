@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        Edit Message: (<%= @message.subject %>)
+      </div>
+      <div class="card-body">
+        <% if @message && @message.errors.any? %>
+          <div id="alert alert-danger">
+            <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+            <ul>
+              <% @message.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <%= form_tag({controller: "contact_messages", action: "update"}, method: "put",  class: 'form-horizontal') do %>
+          <div class="form-group">
+            <%= label_tag(:first_name, nil, class: 'form-label') %>
+            <%= text_field(:message, :first_name, class: 'form-control') %>
+          </div>
+          <div class="form-group">
+            <%= label_tag(:last_name, nil, class: 'form-label') %>
+            <%= text_field(:message, :last_name, class: 'form-control') %>
+          </div>
+          <div class="form-group">
+            <%= label_tag(:email, nil, class: 'form-label') %>
+            <%= text_field(:message, :email, class: 'form-control') %>
+          </div>
+          <div class="form-group">
+            <%= label_tag(:subject, nil, class: 'form-label') %>
+            <%= text_field(:message, :subject, class: 'form-control') %>
+          </div>
+          <div class="form-group">
+            <%= label_tag(:description, nil, class: 'form-label') %>
+            <%= text_area(:message, :description, {class: 'form-control', rows: 5}) %>
+          </div>
+          <div class="form-group">
+            <%= submit_tag('Save Message', class: 'btn btn-primary') %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
