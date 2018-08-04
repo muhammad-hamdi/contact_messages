@@ -4,4 +4,6 @@ class ContactMessage < ApplicationRecord
   validates :email, presence: true, length: { minimum: 1, maximum: 255 }, format: { with: URI::MailTo::EMAIL_REGEXP, message: "Only valid emails Allowed" }
   validates :subject, presence: true, length: { minimum: 1, maximum: 255 }
   validates :description, presence: true, length: { minimum: 1, maximum: 255 }
+
+  self.per_page = 15
 end

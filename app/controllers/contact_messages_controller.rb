@@ -1,6 +1,6 @@
 class ContactMessagesController < ApplicationController
   def index
-    @messages = ContactMessage.all
+    @messages = ContactMessage.paginate(page: params[:page])
   end
 
   def show
